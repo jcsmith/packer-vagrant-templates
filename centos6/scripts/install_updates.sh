@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-echo "Installing Updates and cleaning up."
+echo "Installing Updates."
 yum update -y
-yum clean all

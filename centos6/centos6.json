@@ -19,6 +19,7 @@
 			"http_directory": "http",
 			"http_port_min": 10082,
 			"http_port_max": 10089,
+			"shutdown_command": "shutdown -P now",
 			"ssh_username": "root",
 			"ssh_password": "vagrant",
 			"ssh_port": 22,
