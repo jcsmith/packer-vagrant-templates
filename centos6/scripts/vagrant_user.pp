@@ -14,3 +14,4 @@ class vagrant_user {
   }
 }
 
+include vagrant_user

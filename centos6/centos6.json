@@ -52,7 +52,8 @@
 
 		{
 			"type": "puppet-masterless",
-			"manifest_file": "scripts/vagrant_user.pp"
+			"manifest_file": "scripts/vagrant_user.pp",
+			"prevent_sudo": true
 		}
 
 	]
