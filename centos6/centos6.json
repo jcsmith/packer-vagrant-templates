@@ -39,7 +39,9 @@
 		{
 			"type": "shell",
 			"scripts":[
-				"scripts/install_updates.sh"
+				"scripts/install_updates.sh",
+				"scripts/bootstrap_puppet.sh",
+				"scripts/prepTemplate.sh"
 			]
 		}
 	]
