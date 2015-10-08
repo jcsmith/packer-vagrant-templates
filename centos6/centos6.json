@@ -1,6 +1,6 @@
 {
 	"variables":{
-		"disk_size": "100000"
+		"disk_size": "10000"
 	},
 
 	"builders":
@@ -43,6 +43,17 @@
 				"scripts/bootstrap_puppet.sh",
 				"scripts/prepTemplate.sh"
 			]
+		},
+		{
+			"type": "file",
+			"source": "scripts/vagrant_user.pp",
+			"destination": "/tmp/vagrant_user.pp"
+		},
+
+		{
+			"type": "puppet-masterless",
+			"manifest_file": "scripts/vagrant_user.pp"
 		}
+
 	]
 }
