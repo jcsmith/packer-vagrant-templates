@@ -24,7 +24,7 @@
 			"ssh_password": "vagrant",
 			"ssh_port": 22,
 			"ssh_wait_timeout": "90m",
-			"vm_name": "tdhtest",
+			"vm_name": "centos6",
 			"net_device": "virtio-net",
 			"disk_interface": "virtio",
 			"boot_wait": "5s",
