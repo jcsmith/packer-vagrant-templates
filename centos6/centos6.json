@@ -41,6 +41,8 @@
 			"scripts":[
 				"scripts/install_updates.sh",
 				"scripts/bootstrap_puppet.sh",
+				"scripts/sudo_notty.sh",
+				"scripts/vagrant_sudo.sh",
 				"scripts/prepTemplate.sh"
 			]
 		},
