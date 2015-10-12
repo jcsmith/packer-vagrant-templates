@@ -1,0 +1,62 @@
+{
+	"variables":{
+		"disk_size": "10000"
+	},
+
+	"builders":
+	[
+		{
+			"type": "qemu",
+			"iso_url": "http://mirror.cs.vt.edu/pub/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
+			"iso_checksum": "d07ab3e615c66a8b2e9a50f4852e6a77",
+			"iso_checksum_type": "md5",
+			"output_directory": "output_centos_tdhtest",
+			"ssh_wait_timeout": "30s",
+			"disk_size": "{{ user `disk_size`}}",
+			"format": "qcow2",
+			"headless": false,
+			"accelerator": "kvm",
+			"http_directory": "http",
+			"http_port_min": 10082,
+			"http_port_max": 10089,
+			"shutdown_command": "shutdown -P now",
+			"ssh_username": "root",
+			"ssh_password": "vagrant",
+			"ssh_port": 22,
+			"ssh_wait_timeout": "90m",
+			"vm_name": "centos7",
+			"net_device": "virtio-net",
+			"disk_interface": "virtio",
+			"boot_wait": "5s",
+			"boot_command":
+			[
+				"<tab> text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/template-ks.cfg<enter><wait>"
+			]
+		}
+	],
+
+	"Provisioners": [
+		{
+			"type": "shell",
+			"scripts":[
+				"scripts/install_updates.sh",
+				"scripts/bootstrap_puppet.sh",
+				"scripts/sudo_notty.sh",
+				"scripts/vagrant_sudo.sh",
+				"scripts/prepTemplate.sh"
+			]
+		},
+		{
+			"type": "file",
+			"source": "scripts/vagrant_user.pp",
+			"destination": "/tmp/vagrant_user.pp"
+		},
+
+		{
+			"type": "puppet-masterless",
+			"manifest_file": "scripts/vagrant_user.pp",
+			"prevent_sudo": true
+		}
+
+	]
+}
