@@ -10,7 +10,7 @@
 			"iso_url": "http://mirror.cs.vt.edu/pub/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
 			"iso_checksum": "d07ab3e615c66a8b2e9a50f4852e6a77",
 			"iso_checksum_type": "md5",
-			"output_directory": "output_centos_tdhtest",
+			"output_directory": "output_centos7",
 			"ssh_wait_timeout": "30s",
 			"disk_size": "{{ user `disk_size`}}",
 			"format": "qcow2",
